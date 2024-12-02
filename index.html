@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kumbh+Sans:wght@100..900&family=Manrope:wght@200..800&family=Maven+Pro:wght@400..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Style/style.css" />
+    <title>Countries - API</title>
+  </head>
+  <body>
+    <header>
+      <h1 class="title">Where in the world?</h1>
+      <button class="switch_mode-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="switch_mode--svg"
+          viewBox="0 0 24 24"
+        >
+          <g fill="currentColor" fill-opacity="0">
+            <path
+              d="M15.22 6.03l2.53-1.94L14.56 4L13.5 1l-1.06 3l-3.19.09l2.53 1.94l-.91 3.06l2.63-1.81l2.63 1.81z"
+            >
+              <animate
+                id="lineMdMoonLoop0"
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="0.7s;lineMdMoonLoop0.begin+6s"
+                dur="0.4s"
+                values="0;1"
+              />
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+2.2s"
+                dur="0.4s"
+                values="1;0"
+              />
+            </path>
+            <path
+              d="M13.61 5.25L15.25 4l-2.06-.05L12.5 2l-.69 1.95L9.75 4l1.64 1.25l-.59 1.98l1.7-1.17l1.7 1.17z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+3s"
+                dur="0.4s"
+                values="0;1"
+              />
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+5.2s"
+                dur="0.4s"
+                values="1;0"
+              />
+            </path>
+            <path
+              d="M19.61 12.25L21.25 11l-2.06-.05L18.5 9l-.69 1.95l-2.06.05l1.64 1.25l-.59 1.98l1.7-1.17l1.7 1.17z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+0.4s"
+                dur="0.4s"
+                values="0;1"
+              />
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+2.8s"
+                dur="0.4s"
+                values="1;0"
+              />
+            </path>
+            <path
+              d="M20.828 9.731l1.876-1.439l-2.366-.067L19.552 6l-.786 2.225l-2.366.067l1.876 1.439L17.601 12l1.951-1.342L21.503 12z"
+            >
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+3.4s"
+                dur="0.4s"
+                values="0;1"
+              />
+              <animate
+                fill="freeze"
+                attributeName="fill-opacity"
+                begin="lineMdMoonLoop0.begin+5.6s"
+                dur="0.4s"
+                values="1;0"
+              />
+            </path>
+          </g>
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-dasharray="56"
+            stroke-dashoffset="56"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 6 C7 12.08 11.92 17 18 17 C18.53 17 19.05 16.96 19.56 16.89 C17.95 19.36 15.17 21 12 21 C7.03 21 3 16.97 3 12 C3 8.83 4.64 6.05 7.11 4.44 C7.04 4.95 7 5.47 7 6 Z"
+          >
+            <animate
+              fill="freeze"
+              attributeName="stroke-dashoffset"
+              dur="0.6s"
+              values="56;0"
+            />
+          </path>
+        </svg>
+
+        <p>Dark Mode</p>
+      </button>
+    </header>
+    <main>
+      <div class="input-filter_container">
+        <div class="input_container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="search_svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14"
+            />
+          </svg>
+          <input
+            class="input_field"
+            type="text"
+            placeholder="Search for a country..."
+          />
+        </div>
+        <div class="filter_options-container">
+          <button class="filter_open-options">
+            <p>Filter by Region</p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="left_arrow-svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m14 7l-5 5m0 0l5 5"
+              />
+            </svg>
+          </button>
+
+          <div class="filter_options hidden">
+            <p class="filter_by">Africa</p>
+            <p class="filter_by">America</p>
+            <p class="filter_by">Asia</p>
+            <p class="filter_by">Europe</p>
+            <p class="filter_by">Oceania</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="country_container">
+        <div class="card_country">
+          <div class="img_container">
+            <img class="country_flag" src="https://flagcdn.com/w320/to.png" alt="">
+          </div>
+          <div class="details_container">
+            <p class="country_name">Germany</p>
+            <div class="details_inner">
+              <p class="details_text"><span class="head">Population: </span>81,770,900</p>
+              <p class="details_text"><span class="head">Region: </span>Europe</p>
+              <p class="details_text"><span class="head">Capital: </span>Berlin</p>
+            </div>
+          </div>
+        </div>
+        <div class="card_country">
+          <div class="img_container">
+            <img class="country_flag" src="https://flagcdn.com/w320/to.png" alt="">
+          </div>
+          <div class="details_container">
+            <p class="country_name">Germany</p>
+            <div class="details_inner">
+              <p class="details_text"><span class="head">Population: </span>81,770,900</p>
+              <p class="details_text"><span class="head">Region: </span>Europe</p>
+              <p class="details_text"><span class="head">Capital: </span>Berlin</p>
+            </div>
+          </div>
+        </div>
+        <div class="card_country">
+          <div class="img_container">
+            <img class="country_flag" src="https://flagcdn.com/w320/to.png" alt="">
+          </div>
+          <div class="details_container">
+            <p class="country_name">Germany</p>
+            <div class="details_inner">
+              <p class="details_text"><span class="head">Population: </span>81,770,900</p>
+              <p class="details_text"><span class="head">Region: </span>Europe</p>
+              <p class="details_text"><span class="head">Capital: </span>Berlin</p>
+            </div>
+          </div>
+        </div>
+        <div class="card_country">
+          <div class="img_container">
+            <img class="country_flag" src="https://flagcdn.com/w320/to.png" alt="">
+          </div>
+          <div class="details_container">
+            <p class="country_name">Germany</p>
+            <div class="details_inner">
+              <p class="details_text"><span class="head">Population: </span>81,770,900</p>
+              <p class="details_text"><span class="head">Region: </span>Europe</p>
+              <p class="details_text"><span class="head">Capital: </span>Berlin</p>
+            </div>
+          </div>
+        </div>
+        <div class="card_country">
+          <div class="img_container">
+            <img class="country_flag" src="https://flagcdn.com/w320/to.png" alt="">
+          </div>
+          <div class="details_container">
+            <p class="country_name">Germany</p>
+            <div class="details_inner">
+              <p class="details_text"><span class="head">Population: </span>81,770,900</p>
+              <p class="details_text"><span class="head">Region: </span>Europe</p>
+              <p class="details_text"><span class="head">Capital: </span>Berlin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

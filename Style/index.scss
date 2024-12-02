@@ -1,0 +1,295 @@
+//mediaQuerries ;
+
+$breakpoints: (
+  "tablette": 760px,
+  "mobile": 390px,
+);
+
+@mixin tablette {
+  @media (max-width: map-get($breakpoints, "tablette")) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: map-get($breakpoints, "mobile")) {
+    @content;
+  }
+}
+
+// Variables ;
+
+$dark-mode-blue_elements: hsl(209, 23%, 22%);
+$dark-mode-blue_background: hsl(207, 26%, 17%);
+$dark-mode-light_text: hsl(0, 0%, 100%);
+
+$light-mode-dark__text: hsl(200, 15%, 8%);
+$light-mode-greyish_input: hsl(0, 0%, 52%);
+$light-mode-white_background: hsl(0, 0%, 98%);
+$light-mode-white_elements: hsl(0, 0%, 100%);
+
+$fontStyle: "Nunito Sans", sans-serif;
+
+// GENERALS :
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+  background-color: $light-mode-white_background;
+  transition: all 0.3s ease-in;
+}
+
+body {
+  font-family: $fontStyle;
+  line-height: 1;
+  color: $light-mode-dark__text;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 9rem 3rem 11rem;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 9px 0px;
+
+  @include tablette {
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .switch_mode-btn {
+    background: none;
+    outline: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    font-family: $fontStyle;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    transition: all 0.1s;
+    &:hover {
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    &:active {
+      box-shadow: rgba(100, 100, 111, 0.4) 3px 6px 4px -2px;
+    }
+
+    @include tablette {
+      font-size: 1.2rem;
+    }
+
+    @include mobile {
+      padding: 0.5rem;
+      border-radius: 50%;
+
+      p {
+        display: none;
+      }
+    }
+    .switch_mode--svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  width: 90%;
+  margin: 6rem auto;
+
+  @include tablette {
+    margin-top: 3rem;
+  }
+
+  .input-filter_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: relative;
+
+    @include tablette {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .input_container {
+      display: flex;
+      background-color: $light-mode-white_elements;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 9px 0px;
+      width: 40%;
+      @include tablette {
+        width: 100%;
+      }
+
+      .search_svg {
+        height: 3rem;
+        width: 3rem;
+        color: $light-mode-greyish_input;
+      }
+
+      .input_field {
+        outline: none;
+        border: none;
+        background: none;
+        font-family: $fontStyle;
+        font-size: 1.8rem;
+        width: 100%;
+      }
+    }
+
+    .filter_open-options {
+      background: none;
+      background-color: $light-mode-white_elements;
+      border: none;
+
+      border-radius: 0.5rem;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 9px 0px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5rem;
+      padding: 0 2rem 0 3rem;
+      width: fit-content;
+      height: 6rem;
+      color: $light-mode-dark__text;
+      font-size: 1.5rem;
+      font-family: $fontStyle;
+      cursor: pointer;
+
+      @include tablette {
+        padding: 2rem;
+      }
+
+      .left_arrow-svg {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    .filter_options {
+      position: absolute;
+      background-color: $light-mode-white_elements;
+      padding: 1.5rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      width: 13%;
+      border-radius: 0.5rem;
+      transform: translate(0 , 4%);
+      transition: all 0.1s;
+      
+
+
+      .filter_by{
+        cursor: pointer;
+        border-bottom: 1px solid $light-mode-white_elements;
+        border-radius: 8%;
+        transition: all 0.15s;
+        &:hover{
+          color: rgb(0, 121, 177);
+          border-bottom: 1px rgb(0, 121, 177) solid;
+        }
+      }
+    }
+  }
+
+
+  .country_container{
+    width: 100%;
+    display: grid;
+    // justify-content: space-between;
+    row-gap: 8rem;
+    column-gap: 3rem;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    padding-bottom: 7rem;
+    
+    @include tablette{
+      grid-template-columns: 1fr 1fr ;
+    }
+    @include mobile{
+      grid-template-columns: 1fr;
+    }
+    
+    .card_country{
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 9px 0px;
+      width: 100%;
+      background-color: $light-mode-white_elements;
+      border-radius: 0.5rem;
+      display: flex;
+      padding-bottom: 3rem;
+      flex-direction: column;
+      transition: all 0.2s;
+      cursor: pointer;
+      &:hover{
+        transform: translate(0 , -10px);
+        box-shadow: rgba(100, 100, 111, 0.5) 0px 9px 20px 0px;
+
+      }
+      &:active{
+        transform: translate(0 , -5px);
+        box-shadow: rgba(100, 100, 111, 0.5) 0px 2px 5px 0px;
+      }
+      .img_container{
+        width: 100%;
+
+        .country_flag{
+          width: 100%;
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius:0.5rem ;
+        }
+      }
+
+      .details_container{
+        padding: 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        .country_name{
+          font-weight: 800;
+          font-size: 2rem;
+        }
+
+        .details_inner{
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          .head{
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+.hidden{
+  display: none !important;
+}
