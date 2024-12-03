@@ -1,3 +1,54 @@
+.dark_mode-html {
+  background-color: hsl(207, 26%, 17%);
+}
+.dark_mode-html body {
+  color: hsl(0, 0%, 100%);
+}
+.dark_mode-html body header {
+  box-shadow: rgba(194, 194, 215, 0.2) 0px 1px 9px 0px;
+}
+.dark_mode-html body header .switch_mode-btn {
+  color: hsl(0, 0%, 100%);
+}
+.dark_mode-html body header .switch_mode-btn:hover {
+  box-shadow: rgba(197, 197, 219, 0.2) 0px 7px 29px 0px;
+}
+.dark_mode-html body header .switch_mode-btn:active {
+  box-shadow: rgba(198, 198, 220, 0.4) 3px 6px 4px -2px;
+}
+.dark_mode-html body main .input-filter_container .input_container {
+  background-color: hsl(209, 23%, 22%);
+}
+.dark_mode-html body main .input-filter_container .input_container .search_svg {
+  color: hsl(0, 0%, 100%);
+}
+.dark_mode-html body main .input-filter_container .input_container .input_field {
+  color: hsl(0, 0%, 100%);
+}
+.dark_mode-html body main .input-filter_container .filter_open-options {
+  background-color: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+.dark_mode-html body main .input-filter_container .filter_options {
+  background-color: hsl(209, 23%, 22%);
+}
+.dark_mode-html body main .input-filter_container .filter_options .filter_by {
+  border-bottom: 1px solid hsl(209, 23%, 22%);
+}
+.dark_mode-html body main .input-filter_container .filter_options .filter_by:hover {
+  color: rgb(94, 204, 255);
+  border-bottom: 1px rgb(94, 204, 255) solid;
+}
+.dark_mode-html body main .country_container .card_country {
+  background-color: hsl(209, 23%, 22%);
+}
+.dark_mode-html body main .country_container .card_country:hover {
+  box-shadow: rgba(198, 198, 220, 0.5) 0px 9px 20px 0px;
+}
+.dark_mode-html body main .country_container .card_country:active {
+  box-shadow: rgba(198, 198, 220, 0.5) 0px 2px 5px 0px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +59,7 @@ html {
   font-size: 62.5%;
   height: 100%;
   background-color: hsl(0, 0%, 98%);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s;
 }
 
 body {
@@ -25,6 +76,7 @@ header {
   align-items: center;
   padding: 3rem 9rem 3rem 11rem;
   width: 100%;
+  transition: all 0.2s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 9px 0px;
 }
 @media (max-width: 760px) {
@@ -101,6 +153,7 @@ main .input-filter_container {
 }
 main .input-filter_container .input_container {
   display: flex;
+  transition: all 0.2s;
   background-color: hsl(0, 0%, 100%);
   gap: 1rem;
   align-items: center;
@@ -118,6 +171,7 @@ main .input-filter_container .input_container {
 main .input-filter_container .input_container .search_svg {
   height: 3rem;
   width: 3rem;
+  transition: all 0.2s;
   color: hsl(0, 0%, 52%);
 }
 main .input-filter_container .input_container .input_field {
@@ -132,6 +186,7 @@ main .input-filter_container .filter_open-options {
   background: none;
   background-color: hsl(0, 0%, 100%);
   border: none;
+  transition: all 0.2s;
   border-radius: 0.5rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 9px 0px;
   display: flex;
@@ -166,6 +221,7 @@ main .input-filter_container .filter_options {
   border-radius: 0.5rem;
   transform: translate(0, 4%);
   transition: all 0.1s;
+  z-index: 99;
 }
 main .input-filter_container .filter_options .filter_by {
   cursor: pointer;
@@ -181,7 +237,7 @@ main .country_container {
   width: 100%;
   display: grid;
   row-gap: 8rem;
-  column-gap: 3rem;
+  column-gap: 8rem;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   padding-bottom: 7rem;
@@ -217,9 +273,11 @@ main .country_container .card_country:active {
 }
 main .country_container .card_country .img_container {
   width: 100%;
+  height: 23rem;
 }
 main .country_container .card_country .img_container .country_flag {
   width: 100%;
+  height: 90%;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
@@ -244,4 +302,22 @@ main .country_container .card_country .details_container .details_inner .head {
 
 .hidden {
   display: none !important;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.apply-shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
