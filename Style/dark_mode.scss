@@ -1,52 +1,47 @@
-
 .dark_mode-html {
   background-color: $dark-mode-blue_background;
 
-  body{
+  body {
     color: $dark-mode-light_text;
 
-    header{
+    header {
       box-shadow: rgba(194, 194, 215, 0.2) 0px 1px 9px 0px;
 
-      .switch_mode-btn{
+      .switch_mode-btn {
         color: $dark-mode-light_text;
-        &:hover{
+        &:hover {
           box-shadow: rgba(197, 197, 219, 0.2) 0px 7px 29px 0px;
         }
-        &:active{
+        &:active {
           box-shadow: rgba(198, 198, 220, 0.4) 3px 6px 4px -2px;
         }
       }
     }
 
     main {
-      .input-filter_container{
+      .input-filter_container {
+        .input_container {
+          background-color: $dark-mode-blue_elements;
 
-        .input_container{
-          background-color:$dark-mode-blue_elements;
-          
-          .search_svg{
-            color: $dark-mode-light_text;
-            
-          }
-
-          .input_field{
+          .search_svg {
             color: $dark-mode-light_text;
           }
-          
+
+          .input_field {
+            color: $dark-mode-light_text;
+          }
         }
-        
-        .filter_open-options{
+
+        .filter_open-options {
           background-color: $dark-mode-blue_elements;
           color: $dark-mode-light_text;
-          
         }
 
-        .filter_options{
+        .filter_options {
           background-color: $dark-mode-blue_elements;
-          .filter_by{
+          .filter_by {
             border-bottom: 1px solid $dark-mode-blue_elements;
-            &:hover{
+            &:hover {
               color: rgb(94, 204, 255);
               border-bottom: 1px rgb(94, 204, 255) solid;
             }
@@ -54,17 +49,21 @@
         }
       }
 
-      .country_container{
-        .card_country{
+      .country_container {
+        .card_country {
           background-color: $dark-mode-blue_elements;
-          &:hover{
+          &:hover {
             box-shadow: rgba(198, 198, 220, 0.5) 0px 9px 20px 0px;
           }
-          &:active{
+          &:active {
             box-shadow: rgba(198, 198, 220, 0.5) 0px 2px 5px 0px;
           }
         }
       }
     }
+  }
+  .back_btn {
+    color: $dark-mode-light_text;
+    box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
   }
 }

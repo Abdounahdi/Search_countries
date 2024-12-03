@@ -4,7 +4,28 @@ const html = document.querySelector("html");
 const toggleModeBtn = document.querySelector(".switch_mode-btn");
 const inputSearch = document.querySelector(".input_field");
 const countriesContainer = document.querySelector(".country_container");
+const inputContainer = document.querySelector(".input-filter_container");
+const backBtn = document.querySelector(".back_btn");
 let darkMode = localStorage.getItem("dark-mode");
+let countryCards = document.querySelectorAll(".card_country");
+
+//
+
+const updateEvents = function () {
+  countryCards = document.querySelectorAll(".card_country");
+  countryCards.forEach((el) => {
+    el.removeEventListener("click", openCountryDetails);
+    el.addEventListener("click", openCountryDetails);
+  });
+};
+
+const openCountryDetails = function (e) {
+  const countryName = e.target
+    .closest(".card_country")
+    .querySelector(".country_name").textContent;
+  countriesContainer.classList.add("hidden");
+  inputContainer.classList.add("hidden");
+};
 
 // switching between dark mode and light mode :
 if (darkMode === "enabled") {
@@ -253,6 +274,7 @@ const initialUI = function (data) {
 
     countriesContainer.insertAdjacentHTML("beforeend", html);
   });
+  updateEvents();
 };
 
 initialUI(allCountries);
@@ -300,6 +322,7 @@ const updateUi = function (data) {
     }
     countriesContainer.insertAdjacentHTML("beforeend", html);
   });
+  updateEvents();
 };
 
 async function getCountrySearched(name) {
@@ -361,21 +384,9 @@ filterOptionsArr.forEach((el) => {
   });
 });
 
-// const getCountriesData = async function () {
-//   try {
-//     const res = await fetch(`https://restcountries.com/v3.1/all`);
-//     if (!res.ok) {
-//       inputSearch.value = '' ;
-//       inputSearch.closest('.input_container').classList.add('apply-shake')
-//       throw new Error(`Response status: ${res.status}`);
-//     }
-//     const data = await res.json();
-//     return data;
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
+// moving to another page for more details on country
 
-// inputSearch.closest('.input_container').addEventListener("animationend", (e) =>
-//   inputSearch.closest('.input_container').classList.remove("apply-shake")
-// );
+backBtn.addEventListener("click", function () {
+  countriesContainer.classList.remove("hidden");
+  inputContainer.classList.remove("hidden");
+});

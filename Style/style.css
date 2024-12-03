@@ -48,6 +48,10 @@
 .dark_mode-html body main .country_container .card_country:active {
   box-shadow: rgba(198, 198, 220, 0.5) 0px 2px 5px 0px;
 }
+.dark_mode-html .back_btn {
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
+}
 
 * {
   margin: 0;
@@ -298,6 +302,48 @@ main .country_container .card_country .details_container .details_inner {
 }
 main .country_container .card_country .details_container .details_inner .head {
   font-weight: 700;
+}
+main .back_btn {
+  background: none;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  transition: all 0.1s;
+  width: 10%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+main .back_btn:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+main .back_btn:active {
+  box-shadow: rgba(100, 100, 111, 0.4) 3px 6px 4px -2px;
+}
+@media (max-width: 760px) {
+  main .back_btn {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 390px) {
+  main .back_btn {
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  main .back_btn p {
+    display: none;
+  }
+}
+main .back_btn .arrow_back-svg {
+  width: 3rem;
+  height: 3rem;
 }
 
 .hidden {
