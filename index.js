@@ -429,7 +429,7 @@ backBtn.addEventListener("click", function () {
     countriesContainer.classList.remove("hidden");
     inputContainer.classList.remove("hidden");
     backBtn.classList.add("hidden");
-    countryDetails.classList.remove("hidden");
+    countryDetails.classList.add("hidden");
   }, 200);
 });
 
