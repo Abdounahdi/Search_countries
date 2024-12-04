@@ -213,6 +213,10 @@ main {
       transition: all 0.1s;
       z-index: 99;
 
+      @include mobile(){
+        width: 50%;
+      }
+
       .filter_by {
         cursor: pointer;
         border-bottom: 1px solid $light-mode-white_elements;

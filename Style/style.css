@@ -242,6 +242,11 @@ main .input-filter_container .filter_options {
   transition: all 0.1s;
   z-index: 99;
 }
+@media (max-width: 390px) {
+  main .input-filter_container .filter_options {
+    width: 50%;
+  }
+}
 main .input-filter_container .filter_options .filter_by {
   cursor: pointer;
   border-bottom: 1px solid hsl(0, 0%, 100%);
