@@ -6,8 +6,22 @@ const inputSearch = document.querySelector(".input_field");
 const countriesContainer = document.querySelector(".country_container");
 const inputContainer = document.querySelector(".input-filter_container");
 const backBtn = document.querySelector(".back_btn");
+const countryDetails = document.querySelector(".country_details-container");
 let darkMode = localStorage.getItem("dark-mode");
 let countryCards = document.querySelectorAll(".card_country");
+
+const flagCountry = countryDetails.querySelector(".country_flag");
+const CountryName = countryDetails.querySelector(".country_name");
+const nativeName = countryDetails.querySelector(".nativeName");
+const tld = countryDetails.querySelector(".tld");
+const population = countryDetails.querySelector(".population");
+const currencies = countryDetails.querySelector(".currencies");
+const region = countryDetails.querySelector(".region");
+const languages = countryDetails.querySelector(".languages");
+const subRegion = countryDetails.querySelector(".subRegion");
+const capital = countryDetails.querySelector(".capital");
+
+const borderContainer = document.querySelector(".border-countries_container");
 
 //
 
@@ -19,12 +33,20 @@ const updateEvents = function () {
   });
 };
 
-const openCountryDetails = function (e) {
+const openCountryDetails = async function (e) {
   const countryName = e.target
     .closest(".card_country")
     .querySelector(".country_name").textContent;
   countriesContainer.classList.add("hidden");
   inputContainer.classList.add("hidden");
+  backBtn.classList.remove("hidden");
+  countryDetails.classList.remove("hidden");
+  const data = await getCountrySearched(countryName);
+  renderCountryDetails(data);
+
+  setTimeout(() => {
+    countryDetails.style.opacity = "1";
+  }, 200);
 };
 
 // switching between dark mode and light mode :
@@ -340,6 +362,21 @@ async function getCountrySearched(name) {
   }
 }
 
+async function getCountryBorder(name) {
+  const url = `https://restcountries.com/v3.1/alpha/${name}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
 inputSearch.addEventListener("input", async function (e) {
   // console.log("changed");
   // console.log(e.target.value);
@@ -387,6 +424,76 @@ filterOptionsArr.forEach((el) => {
 // moving to another page for more details on country
 
 backBtn.addEventListener("click", function () {
-  countriesContainer.classList.remove("hidden");
-  inputContainer.classList.remove("hidden");
+  countryDetails.style.opacity = "0";
+  setTimeout(() => {
+    countriesContainer.classList.remove("hidden");
+    inputContainer.classList.remove("hidden");
+    backBtn.classList.add("hidden");
+    countryDetails.classList.remove("hidden");
+  }, 200);
 });
+
+const checkExistance = function (data) {
+  console.log("checked");
+  const text = "Not availble";
+  if (data == "0" || data) {
+    return data;
+  }
+  return text;
+};
+
+const renderBorder = async function(border){
+  const [borderData] = await getCountryBorder(border) ; 
+  return borderData.name.common ; 
+}
+
+const renderCountryDetails = async function (data) {
+  data = data[0];
+  console.log(data);
+  // console.log(flagCountry.querySelector('img'));
+  flagCountry.src = data.flags.svg;
+  CountryName.textContent = data.name.common;
+  nativeName.innerHTML = `<span>Native Name: </span>${
+    Object.values(data.name.nativeName)[0].common
+  }`;
+  population.innerHTML = `<span>Population: </span>${numberWithCommas(
+    data.population
+  )}`;
+  tld.innerHTML = `<span>Top Level Domain: </span>${data.tld}`;
+  currencies.innerHTML = ` <span>Currencies: </span> ${Object.keys(
+    data.currencies
+  )}`;
+  region.innerHTML = `<span>Region: </span>${data.region}`;
+  subRegion.innerHTML = `<span>Sub Region: </span>${data.subregion}`;
+  capital.innerHTML = `<span>Capital: </span>${data.capital}`;
+  languages.innerHTML = `<span>Languages: </span>${Object.values(
+    data.languages
+  )}`;
+
+  if (data.borders) {
+    for (let border of data.borders) {
+      const borderName =await renderBorder(border)
+      const html = `<button class="border_country">${borderName}</button>`;
+      borderContainer.insertAdjacentHTML("beforeend", html);
+    }
+  }
+    
+  // data.borders.forEach(border => {
+  // });
+};
+
+// name.nativeName.values[0]
+
+// tld[]
+
+// population
+
+// currencies.keys
+
+// region
+
+// languages.values
+
+// subregion
+
+// capital[0]

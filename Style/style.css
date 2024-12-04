@@ -48,8 +48,18 @@
 .dark_mode-html body main .country_container .card_country:active {
   box-shadow: rgba(198, 198, 220, 0.5) 0px 2px 5px 0px;
 }
-.dark_mode-html .back_btn {
+.dark_mode-html body main .back_btn {
   color: hsl(0, 0%, 100%);
+  box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
+}
+.dark_mode-html body main .country_details-container .details-container .border-countries_container .border_country {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(209, 23%, 22%);
+}
+.dark_mode-html body main .country_details-container .details-container .border-countries_container .border_country:hover {
+  box-shadow: rgba(198, 198, 220, 0.2) 0px 9px 10px 0px;
+}
+.dark_mode-html body main .country_details-container .details-container .border-countries_container .border_country:active {
   box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
 }
 
@@ -318,7 +328,7 @@ main .back_btn {
   border-radius: 1rem;
   padding: 1rem 2rem;
   transition: all 0.1s;
-  width: 10%;
+  width: 15rem;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 main .back_btn:hover {
@@ -336,6 +346,7 @@ main .back_btn:active {
   main .back_btn {
     padding: 0.5rem;
     border-radius: 50%;
+    width: max-content;
   }
   main .back_btn p {
     display: none;
@@ -344,6 +355,67 @@ main .back_btn:active {
 main .back_btn .arrow_back-svg {
   width: 3rem;
   height: 3rem;
+}
+main .country_details-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+}
+main .country_details-container .flag_container {
+  width: 45%;
+}
+main .country_details-container .flag_container .country_flag {
+  width: 100%;
+}
+main .country_details-container .details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  width: 45%;
+}
+main .country_details-container .details-container .country_name {
+  font-weight: 800;
+  font-size: 3rem;
+}
+main .country_details-container .details-container .details-container--more {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 1.5rem;
+}
+main .country_details-container .details-container .details-container--more .country_detail {
+  font-size: 2rem;
+  font-weight: 100;
+}
+main .country_details-container .details-container .details-container--more .country_detail span {
+  font-weight: 700;
+}
+main .country_details-container .details-container .border-countries_container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+main .country_details-container .details-container .border-countries_container .border_head {
+  font-weight: 700;
+}
+main .country_details-container .details-container .border-countries_container .border_country {
+  background: none;
+  border: none;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(200, 15%, 8%);
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+main .country_details-container .details-container .border-countries_container .border_country:hover {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 9px 20px 0px;
+}
+main .country_details-container .details-container .border-countries_container .border_country:active {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 2px 5px 0px;
 }
 
 .hidden {

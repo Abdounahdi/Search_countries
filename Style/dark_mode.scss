@@ -60,10 +60,27 @@
           }
         }
       }
+      .back_btn {
+        color: $dark-mode-light_text;
+        box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
+      }
+
+      .country_details-container {
+        .details-container {
+          .border-countries_container {
+            .border_country {
+              color: $dark-mode-light_text;
+              background-color: $dark-mode-blue_elements;
+              &:hover {
+                box-shadow: rgba(198, 198, 220, 0.2) 0px 9px 10px 0px;
+              }
+              &:active {
+                box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
+              }
+            }
+          }
+        }
+      }
     }
-  }
-  .back_btn {
-    color: $dark-mode-light_text;
-    box-shadow: rgba(198, 198, 220, 0.2) 0px 2px 5px 0px;
   }
 }
