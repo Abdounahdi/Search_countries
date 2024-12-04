@@ -152,6 +152,11 @@ main {
     margin-top: 3rem;
   }
 }
+@media (max-width: 390px) {
+  main {
+    gap: 4rem;
+  }
+}
 main .input-filter_container {
   display: flex;
   justify-content: space-between;
@@ -363,8 +368,19 @@ main .country_details-container {
   transition: all 0.2s ease-in;
   opacity: 0;
 }
+@media (max-width: 760px) {
+  main .country_details-container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}
 main .country_details-container .flag_container {
   width: 45%;
+}
+@media (max-width: 760px) {
+  main .country_details-container .flag_container {
+    width: 100%;
+  }
 }
 main .country_details-container .flag_container .country_flag {
   width: 100%;
@@ -374,6 +390,11 @@ main .country_details-container .details-container {
   flex-direction: column;
   gap: 5rem;
   width: 45%;
+}
+@media (max-width: 760px) {
+  main .country_details-container .details-container {
+    width: 100%;
+  }
 }
 main .country_details-container .details-container .country_name {
   font-weight: 800;
@@ -385,8 +406,15 @@ main .country_details-container .details-container .details-container--more {
   column-gap: 3rem;
   row-gap: 1.5rem;
 }
+@media (max-width: 390px) {
+  main .country_details-container .details-container .details-container--more {
+    grid-template-columns: 1fr;
+    row-gap: 3rem;
+  }
+}
 main .country_details-container .details-container .details-container--more .country_detail {
   font-size: 2rem;
+  line-height: 3rem;
   font-weight: 100;
 }
 main .country_details-container .details-container .details-container--more .country_detail span {
@@ -397,9 +425,11 @@ main .country_details-container .details-container .border-countries_container {
   align-items: center;
   gap: 1.2rem;
   flex-wrap: wrap;
+  padding-bottom: 4rem;
 }
 main .country_details-container .details-container .border-countries_container .border_head {
   font-weight: 700;
+  font-size: 2rem;
 }
 main .country_details-container .details-container .border-countries_container .border_country {
   background: none;
@@ -409,6 +439,7 @@ main .country_details-container .details-container .border-countries_container .
   padding: 0.5rem 2rem;
   border-radius: 0.5rem;
   transition: all 0.2s;
+  font-size: 1.6rem;
   cursor: pointer;
 }
 main .country_details-container .details-container .border-countries_container .border_country:hover {

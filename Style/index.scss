@@ -121,6 +121,10 @@ main {
     margin-top: 3rem;
   }
 
+  @include mobile{
+    gap: 4rem;
+  }
+
   .input-filter_container {
     display: flex;
     justify-content: space-between;
@@ -342,8 +346,16 @@ main {
     transition: all 0.2s ease-in;
     opacity: 0;
 
+    @include tablette(){
+      flex-direction: column;
+      gap: 4rem;
+    }
+
     .flag_container {
       width: 45%;
+      @include tablette(){
+        width: 100%;
+      }
 
       .country_flag {
         width: 100%;
@@ -355,6 +367,9 @@ main {
       flex-direction: column;
       gap: 5rem;
       width: 45%;
+      @include tablette(){
+        width: 100%;
+      }
 
       .country_name {
         font-weight: 800;
@@ -367,8 +382,14 @@ main {
         column-gap: 3rem;
         row-gap: 1.5rem;
 
+        @include mobile{
+          grid-template-columns: 1fr;
+          row-gap: 3rem;
+        }
+
         .country_detail {
           font-size: 2rem;
+          line-height: 3rem;
           span {
             font-weight: 700;
           }
@@ -381,9 +402,11 @@ main {
         align-items: center;
         gap: 1.2rem;
         flex-wrap: wrap;
+        padding-bottom: 4rem;
 
         .border_head{
           font-weight: 700;
+          font-size: 2rem;
         }
 
         .border_country {
@@ -394,6 +417,7 @@ main {
           padding: 0.5rem 2rem;
           border-radius: 0.5rem;
           transition: all 0.2s;
+          font-size: 1.6rem;
           cursor: pointer;
           &:hover {
             box-shadow: rgba(100, 100, 111, 0.2) 0px 9px 20px 0px;
