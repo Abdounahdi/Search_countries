@@ -1,6 +1,6 @@
-# Frontend Mentor - REST Countries API with color theme switcher solution
+# REST Countries API with color theme switcher solution
 
-[](design/screenshot-2024-12-09-08-32-51.png)
+![screenshot-2024-12-09-08-32-51](https://github.com/user-attachments/assets/10909a3c-05d0-4be1-b5a0-aaccfdfd9780)
 
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
